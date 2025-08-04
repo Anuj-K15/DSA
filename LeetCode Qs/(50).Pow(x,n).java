@@ -8,10 +8,12 @@
 //         double ans = 1;
 //         while (binForm > 0) {
 //             if (binForm % 2 == 1) {
-//                 ans *= x;
+//                 ans = ans * x;
+//                 binForm = binForm - 1;
+//             } else {
+//                 x = x * x;
+//                 binForm = binForm / 2;
 //             }
-//             x *= x;
-//             binForm /= 2;
 //         }
 //         return ans;
 //     }
