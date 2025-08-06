@@ -1,0 +1,34 @@
+public class MissingAndRepeatedValues {
+    public static int[] findMissingAndRepeatedValues(int[][] grid) {
+        int n = grid.length;
+        int sq = n * n;
+        int set[] = new int[sq + 1];
+        int currSum = 0;
+        int ans[] = new int[2];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                // if (set.contains(grid[i][j])) {
+                if (set[grid[i][j]] != 0) {
+                    ans[0] = grid[i][j];
+                } else {
+                    // set.add(grid[i][j]);
+                    set[grid[i][j]] = 1;
+                    currSum += grid[i][j];
+                }
+            }
+        }
+        int totalSum = sq * (sq + 1) / 2;
+        ans[1] = totalSum - currSum;
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello from MissingAndRepeatedValues");
+        int grid[][] = {{1, 3}, {2, 2}};
+        int ans[] = findMissingAndRepeatedValues(grid);
+        System.out.println(ans[0] + " " + ans[1]);
+    }
+}
+// Time Complexity: O(n^2)
+// Space Complexity: O(n^2)
+
