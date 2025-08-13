@@ -13,7 +13,7 @@
 // // Time Complexity: O(n)
 // // Space Complexity: O(1)
 
-// class Solution {
+// class Solution { //Two pointer approach
 //     public boolean isPalindrome(String s) {
 //         int left = 0, right = s.length() - 1;
 //         while (left < right) {
