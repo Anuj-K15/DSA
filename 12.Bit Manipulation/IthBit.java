@@ -20,11 +20,23 @@ public class IthBit {
         int bitMask = newBit<<i;
         return bitMask | n;
     }
+    public static int clearLastIthBit(int n, int i) {
+        int bitMask = ((~0)<<i);
+        return bitMask & n;
+    }
+    public static int clearRangeIthBit(int n, int i, int j) {
+        int a = ((~0)<<(j+1));
+        int b = (1<<i)-1;
+        int bitMask = a|b;
+        return bitMask & n;
+    }
 
     public static void main(String[] args) {
         System.out.println(getIthBit(10, 2));
         System.out.println(setIthBit(10, 2));
         System.out.println(clearIthBit(10, 1));
         System.out.println(updateIthBit(10, 2, 1));
+        System.out.println(clearLastIthBit(15, 2));
+        System.out.println(clearRangeIthBit(10, 2, 4));
     }
 }
