@@ -10,8 +10,7 @@
 //         return new int[2];
 //     }
 
-//     private boolean isContainsZero(int n) {
-//         while (n > 0) {
+ //         while (n > 0) {
 //             if (n % 10 == 0) {
 //                 return true;
 //             }

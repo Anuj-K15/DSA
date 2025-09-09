@@ -1,14 +1,38 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 public class Practice {
     public static void main(String[] args) {
-        int [][] arr = {{1,2,3,4},{4,5,6,7},{7,8,9,3}};
-        // print diagonal elements ( Z shape )
-        for (int i=0; i<arr.length; i++) {
-            System.out.print(arr[0][i] + " ");
-        for (int j=i; j<arr.length; j++) {
-            System.out.print(arr[j][arr.length-1-i] + " ");
+        // String str1 = "Pyramid";
+        // char ch[] = str1.toCharArray();
+        // System.out.println(ch);
+
+        // char ab[] = {'P','y','r','a','m','i','d'};
+        // String str2 = new String(ab);
+        // System.out.println(str2);
+        // System.out.println(str2.length());
+        // System.out.println(str2.toUpperCase());
+        // System.out.println(str2.toLowerCase());
+
+        // StringBuffer sb = new StringBuffer(str2);
+        // System.out.println(sb);
+        // System.out.println(sb.reverse());
+        // System.out.println(sb.append("a"));
+
+        // String str3 = new String("Kava");
+        // str3 = str3.substring(1, str3.length());
+        // StringBuffer sb1 = new StringBuffer(str3);
+        // sb1.insert(0, 'j');
+        // str3 = sb1.toString();
+        // str3 = str3.concat(" is program");
+        // System.out.println(str3);
+
+        int i;
+        for ( i=1;i < 6; i++) {
+            if (i > 3) {
+                continue;
+            }
+            // System.out.println(i);
         }
-        }
-        // System.out.println();
+        System.out.println(i);
     }
 }
