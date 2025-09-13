@@ -24,7 +24,7 @@ public class InsertionSort {
                 arr[prev + 1] = arr[prev]; // shifting
                 prev--;
             }
-            // inserting the current element at its correct position
+            
             arr[prev + 1] = curr;
         }
     }
