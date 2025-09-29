@@ -1,0 +1,4 @@
+
+SELECT p.lastName, p.firstName, a.city, a.state from Person as p LEFT JOIN Address as a ON p.personId = a.personId;
+
+// Time Complexity: O(n)
