@@ -1,42 +1,119 @@
-public class Practice {
-    public static void conquer(int arr[], int si, int mid, int ei) {
-        int merged[] = new int[ei - si + 1];
-        int idx1 = si;
-        int idx2 = mid+1;
-        int x = 0;
+// Inheritance Example
+class Vehicle {
 
-        while (idx1 <= mid && idx2 <= ei) {
-            if (arr[idx1] <= arr[idx2]) {
-                merged[x++] = arr[idx1++];
-            } else {
-                merged[x++] = arr[idx2++];
-            }
-        }
-        while (idx1 <= mid) {
-            merged[x++] = arr[idx1++];
-        }
-        while (idx2 <= ei) {
-            merged[x++] = arr[idx2++];
-        }
-        for (int i = 0, j = si; i < merged.length; i++, j++) {
-            arr[j] = merged[i];
-        }
+    String fuel;
+    int speed;
+    // Constructor
+    Vehicle(String fuel, int speed) {
+        this.speed = speed;
+        this.fuel = fuel;
     }
-    public static void divide(int arr[], int si, int ei) {
-        if (si >= ei) {
-            return;
-        }
-        int mid = si + (ei - si)/2;
-        divide(arr, si, mid);
-        divide(arr, mid+1, ei);
-        conquer(arr, si, mid, ei);
+    //Method
+    void showDetails() {
+        System.out.println("Fuel: " + fuel + ", Speed: " + speed);
     }
+}
+class Car extends Vehicle {
+    Car(String fuel, int speed) {
+        super(fuel, speed);
+    }
+    void drive() {
+        System.out.println("Driving at speed: " + speed);
+    }
+}
+class Bike extends Vehicle {
+    Bike(String fuel, int speed) {
+        super(fuel, speed);
+    }
+    void ride() {
+        System.out.println("Riding at speed: " + speed);
+    }
+}
+
+//Polymorphism Example 
+//parent class
+class Shape {
+    void draw() {
+        System.out.println("Drawing Shape");
+    }
+}
+//child class
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+//child class
+class Rectangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+
+// Encapsulation Example
+class Employee {
+    // Private variables (Encapsulation)
+    private int salary;
+    private int overtime;
+    private int rate;
+    // Constructor
+    Employee(int salary, int overtime, int rate) {
+        this.salary = salary;
+        this.overtime = overtime;
+        this.rate = rate;
+    }
+    // Encapsulated method to calculate total salary
+    public int getWage() {
+        return salary + (overtime * rate);
+    }
+}
+
+// Abstraction Example
+class CoffeeMachine {
+
+    // Private method
+    private void heatWater() {
+        System.out.println("Heating water...");
+    }
+
+    private void brewCoffee() {
+        System.out.println("Brewing coffee...");
+    }
+
+    // Public method
+    public void makeCoffee() {
+        heatWater();
+        brewCoffee();
+        System.out.println("Coffee is ready!");
+    }
+}
+
+public class Practice {
+
     public static void main(String[] args) {
-        int[] arr = {6, 3, 9, 5, 2, 8};
-        int n = arr.length;
-        divide(arr, 0, n-1);
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+        //Inheritance Example
+        Car myCar = new Car("Diesel", 120);
+        myCar.showDetails();
+        myCar.drive();
+
+        Bike myBike = new Bike("Petrol", 80);
+        myBike.showDetails();
+        myBike.ride();
+
+        //Polymorphism Example
+        Shape[] shapes = {new Circle(), new Rectangle()};
+        for (Shape shape : shapes) {
+            shape.draw();
         }
+
+        // Encapsulation Example
+        Employee emp = new Employee(50000, 10, 500);
+        System.out.println("Total Wage: " + emp.getWage());
+
+        // Abstraction Example
+        CoffeeMachine machine = new CoffeeMachine();
+        machine.makeCoffee();
     }
 }
